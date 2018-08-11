@@ -18,18 +18,33 @@ class LipoTool : DeveloperTool {
     
     func architectures(for fileUrl : URL) throws -> [String] {
         let output = try self.execute(with: [ "-info", fileUrl.path ])
-        os_log("Lipo output: %@", log: .default, type: .debug, output)
         
-        let regex = try NSRegularExpression(pattern: ".*is architecture: (.*)", options: [])
+        let regex = try NSRegularExpression(pattern:
+            "Non-fat file:.*is architecture: (.*)|Architectures in the fat file: .*are: (.*)",
+                                            options: [])
         guard let match = regex.firstMatch(in: output, options: [], range: NSMakeRange(0, output.count)) else {
             throw ExecutionError.badOutput
         }
         
-        let range = Range(match.range(at: 1), in: output)
-        let archs = output[range!].split(separator: " ").map { (sub : Substring) -> String in
+        // Single arch case
+        let firstRange = Range(match.range(at: 1), in: output)
+        
+        // Multi arch case
+        let secondRange = Range(match.range(at: 2), in: output)
+        
+        var validRange : Range? = firstRange
+        if validRange == nil {
+            validRange = secondRange
+        }
+        
+        guard validRange != nil else {
+            throw ExecutionError.badOutput
+        }
+        
+        let archs = output[validRange!].split(separator: " ").map { (sub : Substring) -> String in
             return String(sub)
         }
-        os_log("Match: %@", log: .default, type: .debug, archs)
+        os_log("Architectures found: %@", log: .default, type: .debug, archs)
         
         return archs
     }

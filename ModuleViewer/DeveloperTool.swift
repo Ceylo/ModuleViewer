@@ -16,7 +16,7 @@ class DeveloperTool {
     init(url toolUrl : URL) {
         url = toolUrl
         assert(FileManager().fileExists(atPath: url.path))
-        os_log("Created DeveloperTool (%@) with path: %@", log: .default, type: .debug, String(describing: self.self), url.path)
+        os_log("Created %@ with path: %@", log: .default, type: .debug, String(describing: self.self), url.path)
     }
     
     enum ExecutionError : Error {
@@ -34,7 +34,7 @@ class DeveloperTool {
         
         subprocess.launch()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        assert(!subprocess.isRunning)
+        subprocess.waitUntilExit()
         
         if subprocess.terminationStatus != 0 {
             throw ExecutionError.badStatus

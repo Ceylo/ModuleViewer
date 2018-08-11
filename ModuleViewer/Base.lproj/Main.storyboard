@@ -712,16 +712,13 @@
                         <subviews>
                             <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpO-MV-CFe">
                                 <rect key="frame" x="20" y="228" width="440" height="22"/>
-                                <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="Xfq-xg-hIX">
+                                <pathCell key="cell" selectable="YES" refusesFirstResponder="YES" alignment="left" id="Xfq-xg-hIX">
                                     <font key="font" metaFont="system"/>
                                     <url key="url" string="file://localhost/Applications/"/>
                                 </pathCell>
                             </pathControl>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CBE-tz-Sk8">
                                 <rect key="frame" x="20" y="203" width="90" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="BdZ-DM-yrX"/>
-                                </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Architectures:" id="AX7-BE-nd2">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -729,8 +726,11 @@
                                 </textFieldCell>
                             </textField>
                             <tokenField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x7u-5O-AGt">
-                                <rect key="frame" x="116" y="200" width="344" height="22"/>
-                                <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="P0b-Bg-L6K">
+                                <rect key="frame" x="114" y="203" width="348" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="FZg-Qv-9cf"/>
+                                </constraints>
+                                <tokenFieldCell key="cell" selectable="YES" alignment="left" allowsEditingTextAttributes="YES" id="P0b-Bg-L6K">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -739,16 +739,19 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="CBE-tz-Sk8" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="22" id="4Bc-th-lsJ"/>
-                            <constraint firstAttribute="trailing" secondItem="x7u-5O-AGt" secondAttribute="trailing" constant="20" id="L0C-N2-UOl"/>
+                            <constraint firstItem="x7u-5O-AGt" firstAttribute="trailing" secondItem="cpO-MV-CFe" secondAttribute="trailing" id="FM2-71-wdy"/>
+                            <constraint firstItem="x7u-5O-AGt" firstAttribute="leading" secondItem="CBE-tz-Sk8" secondAttribute="trailing" constant="8" symbolic="YES" id="HfU-w7-jCm"/>
                             <constraint firstItem="CBE-tz-Sk8" firstAttribute="top" secondItem="cpO-MV-CFe" secondAttribute="bottom" constant="8" id="MFf-oR-GEb"/>
-                            <constraint firstItem="x7u-5O-AGt" firstAttribute="top" secondItem="cpO-MV-CFe" secondAttribute="bottom" constant="6" id="NO4-Pd-lr8"/>
                             <constraint firstAttribute="trailing" secondItem="cpO-MV-CFe" secondAttribute="trailing" constant="20" id="SBT-6L-1SD"/>
                             <constraint firstItem="cpO-MV-CFe" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" id="YLp-kf-60S"/>
-                            <constraint firstItem="x7u-5O-AGt" firstAttribute="leading" secondItem="CBE-tz-Sk8" secondAttribute="trailing" constant="8" id="g6O-2m-fiX"/>
                             <constraint firstItem="cpO-MV-CFe" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" id="jKK-kA-cqI"/>
-                            <constraint firstItem="x7u-5O-AGt" firstAttribute="leading" secondItem="CBE-tz-Sk8" secondAttribute="trailing" constant="8" id="moE-Iy-y9g"/>
+                            <constraint firstItem="x7u-5O-AGt" firstAttribute="centerY" secondItem="CBE-tz-Sk8" secondAttribute="centerY" id="mqc-YP-L2s"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="architecturesField" destination="x7u-5O-AGt" id="W9v-qd-Xcu"/>
+                        <outlet property="pathControl" destination="cpO-MV-CFe" id="lVx-1J-XJY"/>
+                    </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
