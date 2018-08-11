@@ -7,9 +7,12 @@
 //
 
 import Cocoa
+import os
 
 class Document: NSDocument {
 
+    var architectures : [String]? = nil
+    
     override init() {
         super.init()
         // Add your subclass-specific initialization here.
@@ -24,6 +27,9 @@ class Document: NSDocument {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
         self.addWindowController(windowController)
+        
+        let myView = windowController.contentViewController as! ViewController
+        myView.representedObject = self
     }
 
     override func data(ofType typeName: String) throws -> Data {
@@ -32,13 +38,20 @@ class Document: NSDocument {
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
 
-    override func read(from data: Data, ofType typeName: String) throws {
-        // Insert code here to read your document from the given data of the specified type, throwing an error in case of failure.
-        // Alternatively, you could remove this method and override read(from:ofType:) instead.
-        // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
-        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+//    override func read(from data: Data, ofType typeName: String) throws {
+//        // Insert code here to read your document from the given data of the specified type, throwing an error in case of failure.
+//        // Alternatively, you could remove this method and override read(from:ofType:) instead.
+//        // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
+////        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+////        self.windowCon
+//        os_log("Load data of size %d", log: .default, type: .debug, data.count)
+//    }
+    
+    override func read(from url: URL, ofType typeName: String) throws {
+        os_log("Load data from URL: %@", log: .default, type: .debug, url.path)
+        
+        let lipo = LipoTool()
+        self.architectures = try lipo.architectures(for: url)
     }
-
-
 }
 

@@ -18,10 +18,15 @@ class ViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
+            if let doc = self.document {
+                print(doc)
+            }
         }
     }
-
-
+    
+    weak var document: Document? {
+        return self.representedObject as? Document
+    }
 }
 
