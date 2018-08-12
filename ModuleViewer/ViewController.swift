@@ -9,8 +9,6 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
-    @IBOutlet weak var pathControl: NSPathControl!
     @IBOutlet weak var architecturesField: NSTokenField!
     
     override func viewDidLoad() {
@@ -23,7 +21,6 @@ class ViewController: NSViewController {
         didSet {
             // Update the view, if already loaded.
             if let doc = self.representedObject as? Document {
-                pathControl.url = doc.fileURL
                 architecturesField.stringValue = doc.architectures?.joined(separator: ",") ?? "No architecture found"
             }
         }
