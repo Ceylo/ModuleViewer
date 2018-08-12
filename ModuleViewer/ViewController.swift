@@ -9,9 +9,12 @@
 import Cocoa
 import os
 
-class ViewController: NSViewController, NSTableViewDataSource {
+class ViewController: NSViewController, NSTableViewDataSource, NSSearchFieldDelegate {
     @IBOutlet weak var architecturesField: NSTokenField!
     @IBOutlet weak var symbolsTableView: NSTableView!
+    @IBOutlet weak var symbolsSearchField: NSSearchField!
+    
+    var filteredSymbols : [Symbol]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +36,23 @@ class ViewController: NSViewController, NSTableViewDataSource {
         return self.representedObject as? Document
     }
     
-    // MARK: Table view data source
+    // MARK: - Table view data source
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.document?.symbols?.count ?? 0
+        guard let unfilteredSymbols = self.document?.symbols else {
+            return 0
+        }
+        
+        let symbols = filteredSymbols != nil ? filteredSymbols! : unfilteredSymbols
+        
+        return symbols.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        guard let symbols = self.document?.symbols else {
+        guard let unfilteredSymbols = self.document?.symbols else {
             return nil
         }
+        
+        let symbols = filteredSymbols != nil ? filteredSymbols! : unfilteredSymbols
         
         let symbolNameId = NSUserInterfaceItemIdentifier("name")
         let symbolTypeId = NSUserInterfaceItemIdentifier("type")
@@ -59,6 +70,27 @@ class ViewController: NSViewController, NSTableViewDataSource {
             os_log("Unknown column identifier: %@", tableColumn?.identifier.rawValue ?? "null")
             return nil
         }
+    }
+    
+    // MARK: - Symbols search field
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        guard let unfilteredSymbols = self.document?.symbols else {
+            return
+        }
+        
+        let searchText = self.symbolsSearchField.stringValue
+        guard !searchText.isEmpty else {
+            if self.filteredSymbols != nil {
+                self.filteredSymbols = nil
+                symbolsTableView.reloadData()
+            }
+            return
+        }
+        
+        self.filteredSymbols = unfilteredSymbols.filter({ (symbol : Symbol) -> Bool in
+            return symbol.name.contains(searchText)
+        })
+        symbolsTableView.reloadData()
     }
 }
 

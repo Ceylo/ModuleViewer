@@ -353,13 +353,13 @@
                                 </gridCells>
                             </gridView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-zz-y6K">
-                                <rect key="frame" x="0.0" y="0.0" width="604" height="645"/>
+                                <rect key="frame" x="0.0" y="0.0" width="604" height="613"/>
                                 <clipView key="contentView" id="gV0-uN-ZFu">
-                                    <rect key="frame" x="1" y="0.0" width="602" height="644"/>
+                                    <rect key="frame" x="1" y="0.0" width="602" height="612"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="MeH-B2-6TE" id="lbn-uU-Ski">
-                                            <rect key="frame" x="0.0" y="0.0" width="602" height="621"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="602" height="589"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -427,19 +427,34 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-oX-ccl">
+                                <rect key="frame" x="20" y="623" width="564" height="22"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search Symbols" usesSingleLineMode="YES" bezelStyle="round" id="oEg-SN-0xN">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="5gI-5U-AMq" id="yUN-fl-bne"/>
+                                </connections>
+                            </searchField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="hLL-oX-ccl" firstAttribute="top" secondItem="KDC-Vs-2pY" secondAttribute="bottom" constant="8" id="5O1-Sp-lnl"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KDC-Vs-2pY" secondAttribute="trailing" constant="20" id="7Pl-uE-7Z9"/>
                             <constraint firstItem="KDC-Vs-2pY" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" id="JDN-gu-NjZ"/>
                             <constraint firstAttribute="trailing" secondItem="e8b-zz-y6K" secondAttribute="trailing" id="Kbc-pg-hJn"/>
+                            <constraint firstItem="hLL-oX-ccl" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" id="blq-c3-WPE"/>
                             <constraint firstAttribute="bottom" secondItem="e8b-zz-y6K" secondAttribute="bottom" id="fzD-FA-THt"/>
                             <constraint firstItem="KDC-Vs-2pY" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" id="icM-e0-4x3"/>
                             <constraint firstItem="e8b-zz-y6K" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="iui-Ih-CD5"/>
-                            <constraint firstItem="e8b-zz-y6K" firstAttribute="top" secondItem="KDC-Vs-2pY" secondAttribute="bottom" constant="8" id="ngS-Jx-0op"/>
+                            <constraint firstItem="e8b-zz-y6K" firstAttribute="top" secondItem="hLL-oX-ccl" secondAttribute="bottom" constant="10" id="ngS-Jx-0op"/>
+                            <constraint firstAttribute="trailing" secondItem="hLL-oX-ccl" secondAttribute="trailing" constant="20" id="sRY-oQ-6YS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="architecturesField" destination="6ry-Q9-mKM" id="Brw-mb-KlR"/>
+                        <outlet property="symbolsSearchField" destination="hLL-oX-ccl" id="iJL-Fp-dLX"/>
                         <outlet property="symbolsTableView" destination="lbn-uU-Ski" id="TvC-w1-A72"/>
                     </connections>
                 </viewController>
