@@ -17,7 +17,7 @@ class LipoTool : DeveloperTool {
     }
     
     func architectures(for fileUrl : URL) throws -> [String] {
-        let output = try self.execute(with: [ "-info", fileUrl.path ])
+        let output = try execute(with: [ "-info", fileUrl.path ])
         
         let regex = try NSRegularExpression(pattern:
             "Non-fat file:.*is architecture: (.*)|Architectures in the fat file: .*are: (.*)",
@@ -32,11 +32,7 @@ class LipoTool : DeveloperTool {
         // Multi arch case
         let secondRange = Range(match.range(at: 2), in: output)
         
-        var validRange : Range? = firstRange
-        if validRange == nil {
-            validRange = secondRange
-        }
-        
+        let validRange = firstRange != nil ? firstRange : secondRange
         guard validRange != nil else {
             throw ExecutionError.badOutput
         }

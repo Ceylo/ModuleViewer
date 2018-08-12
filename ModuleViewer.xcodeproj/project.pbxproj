@@ -14,6 +14,7 @@
 		8754F78F211EF2E200608303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8754F78D211EF2E200608303 /* Main.storyboard */; };
 		8754F798211F0DC200608303 /* DeveloperTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F797211F0DC200608303 /* DeveloperTool.swift */; };
 		8754F79A211F0F7400608303 /* LipoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F799211F0F7400608303 /* LipoTool.swift */; };
+		876D36552120717F004E5E48 /* NmTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D36542120717F004E5E48 /* NmTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		8754F791211EF2E200608303 /* ModuleViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModuleViewer.entitlements; sourceTree = "<group>"; };
 		8754F797211F0DC200608303 /* DeveloperTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperTool.swift; sourceTree = "<group>"; };
 		8754F799211F0F7400608303 /* LipoTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipoTool.swift; sourceTree = "<group>"; };
+		876D36542120717F004E5E48 /* NmTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NmTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				8754F791211EF2E200608303 /* ModuleViewer.entitlements */,
 				8754F797211F0DC200608303 /* DeveloperTool.swift */,
 				8754F799211F0F7400608303 /* LipoTool.swift */,
+				876D36542120717F004E5E48 /* NmTool.swift */,
 			);
 			path = ModuleViewer;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			files = (
 				8754F79A211F0F7400608303 /* LipoTool.swift in Sources */,
 				8754F788211EF2E100608303 /* ViewController.swift in Sources */,
+				876D36552120717F004E5E48 /* NmTool.swift in Sources */,
 				8754F786211EF2E100608303 /* AppDelegate.swift in Sources */,
 				8754F798211F0DC200608303 /* DeveloperTool.swift in Sources */,
 				8754F78A211EF2E100608303 /* Document.swift in Sources */,

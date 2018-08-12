@@ -12,6 +12,7 @@ import os
 class Document: NSDocument {
 
     var architectures : [String]? = nil
+    var symbols : [Symbol]? = nil
     
     override init() {
         super.init()
@@ -51,7 +52,13 @@ class Document: NSDocument {
         os_log("Load data from URL: %@", log: .default, type: .debug, url.path)
         
         let lipo = LipoTool()
+        let nm = NmTool()
+        
         self.architectures = try lipo.architectures(for: url)
+        if let architectures = self.architectures {
+            self.symbols = try nm.symbols(for: url, architectures: architectures)
+            os_log("Found %d symbols", log: .default, type: .debug, self.symbols?.count ?? 0)
+        }
     }
 }
 
