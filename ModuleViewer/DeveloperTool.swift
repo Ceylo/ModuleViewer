@@ -16,7 +16,6 @@ class DeveloperTool {
     init(url toolUrl : URL) {
         url = toolUrl
         assert(FileManager().fileExists(atPath: url.path))
-        os_log("Created %@ with path: %@", log: .default, type: .debug, String(describing: self.self), url.path)
     }
     
     enum ExecutionError : Error {

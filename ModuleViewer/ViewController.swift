@@ -14,6 +14,18 @@ class ViewController: NSViewController, NSTableViewDataSource, NSSearchFieldDele
     @IBOutlet weak var symbolsTableView: NSTableView!
     @IBOutlet weak var symbolsSearchField: NSSearchField!
     
+    @IBOutlet weak var localSymbolsButton: NSButton!
+    @IBOutlet weak var externalSymbolsButton: NSButton!
+    @IBOutlet weak var undefinedSymbolsButton: NSButton!
+    @IBOutlet weak var absoluteSymbolsButton: NSButton!
+    @IBOutlet weak var commonSymbolsButton: NSButton!
+    @IBOutlet weak var textSymbolsButton: NSButton!
+    @IBOutlet weak var dataSymbolsButton: NSButton!
+    @IBOutlet weak var bssSymbolsButton: NSButton!
+    @IBOutlet weak var indirectSymbolsButton: NSButton!
+    @IBOutlet weak var otherSymbolsButton: NSButton!
+    @IBOutlet weak var debuggerSymbolsButton: NSButton!
+    
     var filteredSymbols : [Symbol]? = nil
     
     override func viewDidLoad() {
@@ -72,25 +84,56 @@ class ViewController: NSViewController, NSTableViewDataSource, NSSearchFieldDele
         }
     }
     
-    // MARK: - Symbols search field
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    // MARK: - Symbols filtering
+    func filterSymbols() {
         guard let unfilteredSymbols = self.document?.symbols else {
             return
         }
         
         let searchText = self.symbolsSearchField.stringValue
-        guard !searchText.isEmpty else {
-            if self.filteredSymbols != nil {
-                self.filteredSymbols = nil
-                symbolsTableView.reloadData()
-            }
-            return
-        }
-        
         self.filteredSymbols = unfilteredSymbols.filter({ (symbol : Symbol) -> Bool in
-            return symbol.name.contains(searchText)
+            return searchText.isEmpty || symbol.name.contains(searchText)
         })
+        
+        let buttonPerType = [
+            "u" : undefinedSymbolsButton,
+            "a" : absoluteSymbolsButton,
+            "c" : commonSymbolsButton,
+            "t" : textSymbolsButton,
+            "d" : dataSymbolsButton,
+            "b" : bssSymbolsButton,
+            "i" : indirectSymbolsButton,
+            "s" : otherSymbolsButton,
+            "-" : debuggerSymbolsButton
+        ]
+        
+        self.filteredSymbols = self.filteredSymbols?.filter({ (symbol : Symbol) -> Bool in
+            if symbol.type.uppercased() == symbol.type && externalSymbolsButton.state == .off {
+                return false
+            }
+            
+            if symbol.type.lowercased() == symbol.type && localSymbolsButton.state == .off {
+                return false
+            }
+            
+            let key = symbol.type.lowercased()
+            if buttonPerType[key]??.state == .off {
+                return false
+            }
+            
+            return true
+        })
+        
         symbolsTableView.reloadData()
     }
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        filterSymbols()
+    }
+    
+    @IBAction func filterSymbolType(_ sender: NSButton) {
+        filterSymbols()
+    }
+    
 }
 

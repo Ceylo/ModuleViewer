@@ -49,16 +49,16 @@ class Document: NSDocument {
 //    }
     
     override func read(from url: URL, ofType typeName: String) throws {
-        os_log("Load data from URL: %@", log: .default, type: .debug, url.path)
-        
         let lipo = LipoTool()
         let nm = NmTool()
         
         self.architectures = try lipo.architectures(for: url)
         if let architectures = self.architectures {
             self.symbols = try nm.symbols(for: url, architectures: architectures)
-            os_log("Found %d symbols", log: .default, type: .debug, self.symbols?.count ?? 0)
         }
+        
+        os_log("Found %d architectures and %d symbols in: %@", log: .default, type: .debug,
+               self.architectures?.count ?? 0, self.symbols?.count ?? 0, url.path)
     }
 }
 

@@ -40,7 +40,6 @@ class LipoTool : DeveloperTool {
         let archs = output[validRange!].split(separator: " ").map { (sub : Substring) -> String in
             return String(sub)
         }
-        os_log("Architectures found: %@", log: .default, type: .debug, archs)
         
         return archs
     }
