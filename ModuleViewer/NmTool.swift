@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 class Symbol : NSObject {
     let name : String
@@ -50,7 +51,8 @@ class NmTool : DeveloperTool {
                 }
                 
                 guard let match = regex.firstMatch(in: line, options: [], range: NSMakeRange(0, line.count)) else {
-                    throw ExecutionError.badOutput
+                    os_log("Failed parsing line: %@", type: .debug, line)
+                    continue
                 }
                 
                 let objcSymbolNameRange = Range(match.range(at: 1), in: output)
