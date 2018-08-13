@@ -62,7 +62,7 @@ class NmTool : DeveloperTool {
                 
                 let symbolNameRange = objcSymbolNameRange != nil ? objcSymbolNameRange : cSymbolNameRange
                 let symbolTypeRange = objcSymbolTypeRange != nil ? objcSymbolTypeRange : cSymbolTypeRange
-                let symbolName = String(line[symbolNameRange!])
+                let symbolName = DemangleCXXSymbol(String(line[symbolNameRange!]))
                 let symbolType = String(line[symbolTypeRange!])
                 
                 symbols.append(Symbol(name: symbolName, type: symbolType, architecture: architecture))
