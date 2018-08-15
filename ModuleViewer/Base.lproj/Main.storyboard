@@ -339,30 +339,26 @@
             <objects>
                 <viewController id="ArH-U0-qM6" customClass="PreferencesViewController" customModule="ModuleViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="VoS-XW-1F7">
-                        <rect key="frame" x="0.0" y="0.0" width="601" height="98"/>
+                        <rect key="frame" x="0.0" y="0.0" width="524" height="100"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="orj-zz-jOu">
-                                <rect key="frame" x="20" y="20" width="561" height="58"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="orj-zz-jOu">
+                                <rect key="frame" x="20" y="20" width="484" height="60"/>
                                 <subviews>
                                     <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="FfU-ck-hfH">
-                                        <rect key="frame" x="0.0" y="32" width="561" height="26"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="YZQ-VD-l3t" secondAttribute="trailing" constant="6" id="GeU-0X-qWU"/>
-                                            <constraint firstItem="YZQ-VD-l3t" firstAttribute="leading" secondItem="EFo-aN-3Hj" secondAttribute="trailing" constant="6" id="l4x-CB-fs5"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="38" width="484" height="22"/>
                                         <rows>
                                             <gridRow id="1fn-lC-Nue"/>
                                         </rows>
                                         <columns>
-                                            <gridColumn id="4tc-2H-87W"/>
-                                            <gridColumn id="XCJ-Pr-MUx"/>
+                                            <gridColumn xPlacement="trailing" width="102" id="4tc-2H-87W"/>
+                                            <gridColumn width="376" id="XCJ-Pr-MUx"/>
                                         </columns>
                                         <gridCells>
-                                            <gridCell row="1fn-lC-Nue" column="4tc-2H-87W" id="gQt-6T-bcN">
+                                            <gridCell row="1fn-lC-Nue" column="4tc-2H-87W" yPlacement="center" id="gQt-6T-bcN">
                                                 <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EFo-aN-3Hj">
-                                                    <rect key="frame" x="-2" y="0.0" width="103" height="17"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Selected Xcode:" id="mjr-ER-BZj">
+                                                    <rect key="frame" x="1" y="3" width="103" height="17"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Selected Xcode:" id="mjr-ER-BZj">
                                                         <font key="font" usesAppearanceFont="YES"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -370,20 +366,46 @@
                                                 </textField>
                                             </gridCell>
                                             <gridCell row="1fn-lC-Nue" column="XCJ-Pr-MUx" id="OeY-Gw-2Vm">
-                                                <pathControl key="contentView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YZQ-VD-l3t">
-                                                    <rect key="frame" x="105" y="0.0" width="450" height="20"/>
-                                                    <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="QLk-P0-gen">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <url key="url" string="file://localhost/Applications/"/>
-                                                    </pathCell>
-                                                </pathControl>
+                                                <stackView key="contentView" distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MkP-L0-9Gc">
+                                                    <rect key="frame" x="108" y="0.0" width="273" height="22"/>
+                                                    <subviews>
+                                                        <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c34-L8-kq0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="22"/>
+                                                            <pathCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" alignment="left" placeholderString="None" id="MMN-Ga-x8Q">
+                                                                <font key="font" metaFont="system"/>
+                                                                <url key="url" string="file://localhost/Applications/"/>
+                                                            </pathCell>
+                                                        </pathControl>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9o1-i6-h97">
+                                                            <rect key="frame" x="190" y="-6" width="89" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="77" id="agX-gq-pvq"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="push" title="Select…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Onc-Hz-9am">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="selectXcode:" target="ArH-U0-qM6" id="e68-cN-xYi"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
                                             </gridCell>
                                         </gridCells>
                                     </gridView>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="QSo-4V-g5O">
-                                        <rect key="frame" x="-2" y="0.0" width="565" height="32"/>
+                                        <rect key="frame" x="-2" y="0.0" width="488" height="32"/>
                                         <textFieldCell key="cell" selectable="YES" title="Xcode provides tools like &quot;nm&quot; and &quot;lipo&quot; that are used by this application in order to provide the data." id="4K4-Hx-Se2">
-                                            <font key="font" metaFont="system" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -394,8 +416,6 @@
                                     <constraint firstAttribute="trailing" secondItem="FfU-ck-hfH" secondAttribute="trailing" id="Br0-pO-peH"/>
                                     <constraint firstAttribute="trailing" secondItem="QSo-4V-g5O" secondAttribute="trailing" id="pc5-zG-ONY"/>
                                     <constraint firstItem="QSo-4V-g5O" firstAttribute="leading" secondItem="orj-zz-jOu" secondAttribute="leading" id="qNU-da-dqF"/>
-                                    <constraint firstAttribute="height" constant="58" id="xhH-3I-Y6d"/>
-                                    <constraint firstAttribute="width" constant="561" id="zCN-GF-dVe"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -410,14 +430,16 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="orj-zz-jOu" secondAttribute="bottom" constant="20" symbolic="YES" id="5Wc-tI-l5S"/>
                             <constraint firstItem="orj-zz-jOu" firstAttribute="leading" secondItem="VoS-XW-1F7" secondAttribute="leading" constant="20" symbolic="YES" id="OHi-4O-0dE"/>
-                            <constraint firstItem="orj-zz-jOu" firstAttribute="top" secondItem="VoS-XW-1F7" secondAttribute="top" constant="20" symbolic="YES" id="ieb-XJ-jqa"/>
                             <constraint firstAttribute="trailing" secondItem="orj-zz-jOu" secondAttribute="trailing" constant="20" id="kaj-wl-VFx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="xcodePathControl" destination="c34-L8-kq0" id="aKt-Pi-rCD"/>
+                    </connections>
                 </viewController>
                 <customObject id="1cS-9f-HSh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1330.5" y="305"/>
+            <point key="canvasLocation" x="1325" y="306"/>
         </scene>
         <!--Document View Controller-->
         <scene sceneID="hIz-AP-VOD">

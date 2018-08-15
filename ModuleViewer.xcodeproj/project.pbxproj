@@ -17,6 +17,7 @@
 		876D36552120717F004E5E48 /* NmTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D36542120717F004E5E48 /* NmTool.swift */; };
 		876D365821208A7B004E5E48 /* CXXDemangler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 876D365721208A7B004E5E48 /* CXXDemangler.mm */; };
 		87DBF86A2124904300463208 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBF8692124904300463208 /* PreferencesViewController.swift */; };
+		87DBF86C21249AA600463208 /* ToolchainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBF86B21249AA600463208 /* ToolchainProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		876D365721208A7B004E5E48 /* CXXDemangler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CXXDemangler.mm; sourceTree = "<group>"; };
 		876D365921208A92004E5E48 /* CXXDemangler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXXDemangler.h; sourceTree = "<group>"; };
 		87DBF8692124904300463208 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		87DBF86B21249AA600463208 /* ToolchainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolchainProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		872E3A9F2124C2320019B09A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8754F797211F0DC200608303 /* DeveloperTool.swift */,
+				8754F799211F0F7400608303 /* LipoTool.swift */,
+				876D36542120717F004E5E48 /* NmTool.swift */,
+				876D365721208A7B004E5E48 /* CXXDemangler.mm */,
+				876D365921208A92004E5E48 /* CXXDemangler.h */,
+				87DBF86B21249AA600463208 /* ToolchainProvider.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		872E3AA02124C25C0019B09A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				872E3A9F2124C2320019B09A /* Utilities */,
+				8754F785211EF2E100608303 /* AppDelegate.swift */,
+				8754F787211EF2E100608303 /* DocumentViewController.swift */,
+				8754F789211EF2E100608303 /* Document.swift */,
+				87DBF8692124904300463208 /* PreferencesViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		8754F779211EF2E100608303 = {
 			isa = PBXGroup;
 			children = (
@@ -67,20 +94,12 @@
 		8754F784211EF2E100608303 /* ModuleViewer */ = {
 			isa = PBXGroup;
 			children = (
-				8754F785211EF2E100608303 /* AppDelegate.swift */,
-				8754F787211EF2E100608303 /* DocumentViewController.swift */,
-				8754F789211EF2E100608303 /* Document.swift */,
+				872E3AA02124C25C0019B09A /* Sources */,
 				8754F78B211EF2E200608303 /* Assets.xcassets */,
 				8754F78D211EF2E200608303 /* Main.storyboard */,
+				876D365621208A7B004E5E48 /* ModuleViewer-Bridging-Header.h */,
 				8754F790211EF2E200608303 /* Info.plist */,
 				8754F791211EF2E200608303 /* ModuleViewer.entitlements */,
-				8754F797211F0DC200608303 /* DeveloperTool.swift */,
-				8754F799211F0F7400608303 /* LipoTool.swift */,
-				876D36542120717F004E5E48 /* NmTool.swift */,
-				876D365721208A7B004E5E48 /* CXXDemangler.mm */,
-				876D365921208A92004E5E48 /* CXXDemangler.h */,
-				876D365621208A7B004E5E48 /* ModuleViewer-Bridging-Header.h */,
-				87DBF8692124904300463208 /* PreferencesViewController.swift */,
 			);
 			path = ModuleViewer;
 			sourceTree = "<group>";
@@ -157,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				876D365821208A7B004E5E48 /* CXXDemangler.mm in Sources */,
+				87DBF86C21249AA600463208 /* ToolchainProvider.swift in Sources */,
 				8754F79A211F0F7400608303 /* LipoTool.swift in Sources */,
 				8754F788211EF2E100608303 /* DocumentViewController.swift in Sources */,
 				87DBF86A2124904300463208 /* PreferencesViewController.swift in Sources */,
