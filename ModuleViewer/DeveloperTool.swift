@@ -67,7 +67,12 @@ class DeveloperTool {
     
     func execute(with args : [String]) throws -> String {
         let subprocess = Process()
-        subprocess.executableURL = self.executableUrl
+        
+        if #available(OSX 10.13, *) {
+            subprocess.executableURL = self.executableUrl
+        } else {
+            subprocess.launchPath = self.executableUrl.path
+        }
         subprocess.arguments = args
         
         let pipe = Pipe()
