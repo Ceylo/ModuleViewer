@@ -11,9 +11,8 @@ import os
 
 class LipoTool : DeveloperTool {
     
-    init() {
-        let lipoUrl = DeveloperTool.xcodeToolchainURL!.appendingPathComponent("/usr/bin/lipo")
-        super.init(url: lipoUrl)
+    init() throws {
+        try super.init(url: URL(fileURLWithPath:"/usr/bin/lipo"))
     }
     
     func architectures(for fileUrl : URL) throws -> [String] {
@@ -23,7 +22,7 @@ class LipoTool : DeveloperTool {
             "Non-fat file:.*is architecture: (.*)|Architectures in the fat file: .*are: (.*)",
                                             options: [])
         guard let match = regex.firstMatch(in: output, options: [], range: NSMakeRange(0, output.count)) else {
-            throw ExecutionError.badOutput
+            throw DeveloperToolError.badOutput
         }
         
         // Single arch case
@@ -34,7 +33,7 @@ class LipoTool : DeveloperTool {
         
         let validRange = firstRange != nil ? firstRange : secondRange
         guard validRange != nil else {
-            throw ExecutionError.badOutput
+            throw DeveloperToolError.badOutput
         }
         
         let archs = output[validRange!].split(separator: " ").map { (sub : Substring) -> String in

@@ -29,9 +29,8 @@ class Symbol : NSObject {
 
 class NmTool : DeveloperTool {
     
-    init() {
-        let nmUrl = DeveloperTool.xcodeToolchainURL!.appendingPathComponent("/usr/bin/nm")
-        super.init(url: nmUrl)
+    init() throws {
+        try super.init(url: URL(fileURLWithPath: "/usr/bin/nm"))
     }
     
     func symbols(for fileUrl : URL, architectures : [String]) throws -> [Symbol] {

@@ -49,8 +49,8 @@ class Document: NSDocument {
 //    }
     
     override func read(from url: URL, ofType typeName: String) throws {
-        let lipo = LipoTool()
-        let nm = NmTool()
+        let lipo = try LipoTool()
+        let nm = try NmTool()
         
         self.architectures = try lipo.architectures(for: url)
         if let architectures = self.architectures {

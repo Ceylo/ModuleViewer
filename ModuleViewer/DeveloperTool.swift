@@ -7,25 +7,67 @@
 //
 
 import Foundation
+import AppKit
 import os
 
-class DeveloperTool {
-    static var xcodeToolchainURL : URL? = nil
-    let url : URL
+func askXcodeURL() -> URL? {
+    let openPanel = NSOpenPanel()
+    openPanel.allowsMultipleSelection = false
+    openPanel.canChooseDirectories = false
+    openPanel.canChooseFiles = true
+    openPanel.allowedFileTypes = [ "app" ]
+    openPanel.message = "Select the Xcode app from which tools like lipo will be run"
+    let result = openPanel.runModal()
     
-    init(url toolUrl : URL) {
-        url = toolUrl
-        assert(FileManager().fileExists(atPath: url.path))
+    guard result == .OK else {
+        return nil
     }
     
-    enum ExecutionError : Error {
+    assert(openPanel.urls.count == 1)
+    let xcodeURL = openPanel.urls[0]
+    if !xcodeURL.path.contains("Xcode") {
+        let alert = NSAlert()
+        alert.messageText = "The selected application is not Xcode."
+        alert.runModal()
+        return nil
+    }
+    
+    let xcodeToolchainURL = xcodeURL.appendingPathComponent("Contents/Developer/Toolchains/XcodeDefault.xctoolchain")
+    os_log("Will use Xcode toolchain at: %@", log: .default, type: .debug, xcodeToolchainURL as CVarArg)
+    
+    return xcodeToolchainURL
+}
+
+class DeveloperTool {
+    enum DeveloperToolError : Error {
+        case badToolchain
         case badStatus
         case badOutput
     }
     
+    let executableUrl : URL
+    
+    init(url toolUrl : URL) throws {
+        var toolchainURL = UserDefaults.standard.url(forKey: "XcodeToolchainURL")
+        
+        // Go through these checks to allow executables like lipo or nm to be usable
+        // in sandbox
+        if toolchainURL == nil || !FileManager.default.fileExists(atPath: (toolchainURL?.path)!) {
+            toolchainURL = askXcodeURL()
+            if toolchainURL == nil {
+                throw DeveloperToolError.badToolchain
+            }
+            
+            UserDefaults.standard.set(toolchainURL, forKey: "XcodeToolchainURL")
+        }
+        
+        executableUrl = (toolchainURL?.appendingPathComponent(toolUrl.path))!
+        assert(FileManager().fileExists(atPath: executableUrl.path))
+    }
+    
     func execute(with args : [String]) throws -> String {
         let subprocess = Process()
-        subprocess.executableURL = self.url
+        subprocess.executableURL = self.executableUrl
         subprocess.arguments = args
         
         let pipe = Pipe()
@@ -36,7 +78,7 @@ class DeveloperTool {
         subprocess.waitUntilExit()
         
         if subprocess.terminationStatus != 0 {
-            throw ExecutionError.badStatus
+            throw DeveloperToolError.badStatus
         }
         
         if let output = String(data: data, encoding: String.Encoding.utf8) {
