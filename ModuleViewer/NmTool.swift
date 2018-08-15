@@ -41,7 +41,7 @@ class NmTool : DeveloperTool {
             let lines = output.components(separatedBy: .newlines)
             
             // Match both ObjC style symbols and C/C++ symbols
-            let regex = try NSRegularExpression(pattern: "([-+]\\[.+\\]) (\\S+).*|(\\S+) (\\S+).*",
+            let regex = try NSRegularExpression(pattern: "(.+) ([uactdbis\\-UACTDBIS]) .*",
                                                 options: [])
             
             for line in lines {
@@ -54,13 +54,8 @@ class NmTool : DeveloperTool {
                     continue
                 }
                 
-                let objcSymbolNameRange = Range(match.range(at: 1), in: output)
-                let objcSymbolTypeRange = Range(match.range(at: 2), in: output)
-                let cSymbolNameRange = Range(match.range(at: 3), in: output)
-                let cSymbolTypeRange = Range(match.range(at: 4), in: output)
-                
-                let symbolNameRange = objcSymbolNameRange != nil ? objcSymbolNameRange : cSymbolNameRange
-                let symbolTypeRange = objcSymbolTypeRange != nil ? objcSymbolTypeRange : cSymbolTypeRange
+                let symbolNameRange = Range(match.range(at: 1), in: output)
+                let symbolTypeRange = Range(match.range(at: 2), in: output)
                 let symbolName = DemangleCXXSymbol(String(line[symbolNameRange!]))
                 let symbolType = String(line[symbolTypeRange!])
                 
