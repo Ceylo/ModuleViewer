@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8754F786211EF2E100608303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F785211EF2E100608303 /* AppDelegate.swift */; };
-		8754F788211EF2E100608303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F787211EF2E100608303 /* ViewController.swift */; };
+		8754F788211EF2E100608303 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F787211EF2E100608303 /* DocumentViewController.swift */; };
 		8754F78A211EF2E100608303 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F789211EF2E100608303 /* Document.swift */; };
 		8754F78C211EF2E200608303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8754F78B211EF2E200608303 /* Assets.xcassets */; };
 		8754F78F211EF2E200608303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8754F78D211EF2E200608303 /* Main.storyboard */; };
@@ -16,12 +16,13 @@
 		8754F79A211F0F7400608303 /* LipoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F799211F0F7400608303 /* LipoTool.swift */; };
 		876D36552120717F004E5E48 /* NmTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D36542120717F004E5E48 /* NmTool.swift */; };
 		876D365821208A7B004E5E48 /* CXXDemangler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 876D365721208A7B004E5E48 /* CXXDemangler.mm */; };
+		87DBF86A2124904300463208 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBF8692124904300463208 /* PreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8754F782211EF2E100608303 /* ModuleViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModuleViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8754F785211EF2E100608303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8754F787211EF2E100608303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8754F787211EF2E100608303 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		8754F789211EF2E100608303 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		8754F78B211EF2E200608303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8754F78E211EF2E200608303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,6 +34,7 @@
 		876D365621208A7B004E5E48 /* ModuleViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ModuleViewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		876D365721208A7B004E5E48 /* CXXDemangler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CXXDemangler.mm; sourceTree = "<group>"; };
 		876D365921208A92004E5E48 /* CXXDemangler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXXDemangler.h; sourceTree = "<group>"; };
+		87DBF8692124904300463208 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				8754F785211EF2E100608303 /* AppDelegate.swift */,
-				8754F787211EF2E100608303 /* ViewController.swift */,
+				8754F787211EF2E100608303 /* DocumentViewController.swift */,
 				8754F789211EF2E100608303 /* Document.swift */,
 				8754F78B211EF2E200608303 /* Assets.xcassets */,
 				8754F78D211EF2E200608303 /* Main.storyboard */,
@@ -78,6 +80,7 @@
 				876D365721208A7B004E5E48 /* CXXDemangler.mm */,
 				876D365921208A92004E5E48 /* CXXDemangler.h */,
 				876D365621208A7B004E5E48 /* ModuleViewer-Bridging-Header.h */,
+				87DBF8692124904300463208 /* PreferencesViewController.swift */,
 			);
 			path = ModuleViewer;
 			sourceTree = "<group>";
@@ -155,7 +158,8 @@
 			files = (
 				876D365821208A7B004E5E48 /* CXXDemangler.mm in Sources */,
 				8754F79A211F0F7400608303 /* LipoTool.swift in Sources */,
-				8754F788211EF2E100608303 /* ViewController.swift in Sources */,
+				8754F788211EF2E100608303 /* DocumentViewController.swift in Sources */,
+				87DBF86A2124904300463208 /* PreferencesViewController.swift in Sources */,
 				876D36552120717F004E5E48 /* NmTool.swift in Sources */,
 				8754F786211EF2E100608303 /* AppDelegate.swift in Sources */,
 				8754F798211F0DC200608303 /* DeveloperTool.swift in Sources */,

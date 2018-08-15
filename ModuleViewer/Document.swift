@@ -29,7 +29,7 @@ class Document: NSDocument {
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
         self.addWindowController(windowController)
         
-        let myView = windowController.contentViewController as! ViewController
+        let myView = windowController.contentViewController as! DocumentViewController
         myView.representedObject = self
     }
 

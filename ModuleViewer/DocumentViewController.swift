@@ -9,7 +9,7 @@
 import Cocoa
 import os
 
-class ViewController: NSViewController, NSTableViewDataSource, NSSearchFieldDelegate {
+class DocumentViewController: NSViewController, NSTableViewDataSource, NSSearchFieldDelegate {
     @IBOutlet weak var architecturesField: NSTokenField!
     @IBOutlet weak var symbolsTableView: NSTableView!
     @IBOutlet weak var symbolsSearchField: NSSearchField!
