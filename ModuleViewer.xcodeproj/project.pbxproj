@@ -16,8 +16,12 @@
 		8754F79A211F0F7400608303 /* LipoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8754F799211F0F7400608303 /* LipoTool.swift */; };
 		876D36552120717F004E5E48 /* NmTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D36542120717F004E5E48 /* NmTool.swift */; };
 		876D365821208A7B004E5E48 /* CXXDemangler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 876D365721208A7B004E5E48 /* CXXDemangler.mm */; };
+		877D407C2128C3E100E559BA /* DependencyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D407B2128C3E100E559BA /* DependencyCellView.swift */; };
+		87DB496A21289ED10065A7BF /* DocumentSymbolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DB496921289ED10065A7BF /* DocumentSymbolsViewController.swift */; };
+		87DB496C21289F1A0065A7BF /* DocumentDependenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DB496B21289F1A0065A7BF /* DocumentDependenciesViewController.swift */; };
 		87DBF86A2124904300463208 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBF8692124904300463208 /* PreferencesViewController.swift */; };
 		87DBF86C21249AA600463208 /* ToolchainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBF86B21249AA600463208 /* ToolchainProvider.swift */; };
+		87FA1BD121288DAB00629BDE /* ObjdumpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FA1BD021288DAB00629BDE /* ObjdumpTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +39,12 @@
 		876D365621208A7B004E5E48 /* ModuleViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ModuleViewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		876D365721208A7B004E5E48 /* CXXDemangler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CXXDemangler.mm; sourceTree = "<group>"; };
 		876D365921208A92004E5E48 /* CXXDemangler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXXDemangler.h; sourceTree = "<group>"; };
+		877D407B2128C3E100E559BA /* DependencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyCellView.swift; sourceTree = "<group>"; };
+		87DB496921289ED10065A7BF /* DocumentSymbolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSymbolsViewController.swift; sourceTree = "<group>"; };
+		87DB496B21289F1A0065A7BF /* DocumentDependenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDependenciesViewController.swift; sourceTree = "<group>"; };
 		87DBF8692124904300463208 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		87DBF86B21249AA600463208 /* ToolchainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolchainProvider.swift; sourceTree = "<group>"; };
+		87FA1BD021288DAB00629BDE /* ObjdumpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjdumpTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 				876D365721208A7B004E5E48 /* CXXDemangler.mm */,
 				876D365921208A92004E5E48 /* CXXDemangler.h */,
 				87DBF86B21249AA600463208 /* ToolchainProvider.swift */,
+				87FA1BD021288DAB00629BDE /* ObjdumpTool.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -71,6 +80,9 @@
 				8754F787211EF2E100608303 /* DocumentViewController.swift */,
 				8754F789211EF2E100608303 /* Document.swift */,
 				87DBF8692124904300463208 /* PreferencesViewController.swift */,
+				87DB496921289ED10065A7BF /* DocumentSymbolsViewController.swift */,
+				87DB496B21289F1A0065A7BF /* DocumentDependenciesViewController.swift */,
+				877D407B2128C3E100E559BA /* DependencyCellView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -175,9 +187,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87DB496C21289F1A0065A7BF /* DocumentDependenciesViewController.swift in Sources */,
 				876D365821208A7B004E5E48 /* CXXDemangler.mm in Sources */,
 				87DBF86C21249AA600463208 /* ToolchainProvider.swift in Sources */,
+				87DB496A21289ED10065A7BF /* DocumentSymbolsViewController.swift in Sources */,
 				8754F79A211F0F7400608303 /* LipoTool.swift in Sources */,
+				87FA1BD121288DAB00629BDE /* ObjdumpTool.swift in Sources */,
+				877D407C2128C3E100E559BA /* DependencyCellView.swift in Sources */,
 				8754F788211EF2E100608303 /* DocumentViewController.swift in Sources */,
 				87DBF86A2124904300463208 /* PreferencesViewController.swift in Sources */,
 				876D36552120717F004E5E48 /* NmTool.swift in Sources */,

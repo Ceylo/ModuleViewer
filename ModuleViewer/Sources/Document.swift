@@ -13,6 +13,7 @@ class Document: NSDocument {
 
     var architectures : [String]? = nil
     var symbols : [Symbol]? = nil
+    var dependencies : [String]? = nil
     
     override init() {
         super.init()
@@ -57,8 +58,11 @@ class Document: NSDocument {
             self.symbols = try nm.symbols(for: url, architectures: architectures)
         }
         
-        os_log("Found %d architectures and %d symbols in: %@", log: .default, type: .debug,
-               self.architectures?.count ?? 0, self.symbols?.count ?? 0, url.path)
+        let objdump = try ObjdumpTool()
+        self.dependencies = try objdump.dependencies(for: url)
+        
+        os_log("Found %d architectures, %d dependencies and %d symbols in: %@", log: .default, type: .debug,
+               self.architectures?.count ?? 0, self.dependencies?.count ?? 0, self.symbols?.count ?? 0, url.path)
     }
 }
 

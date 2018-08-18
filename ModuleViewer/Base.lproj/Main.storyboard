@@ -306,12 +306,12 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
+                        <segue destination="PzT-7m-7zJ" kind="relationship" relationship="window.shadowedContentViewController" id="FG2-7c-mz4"/>
                     </connections>
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="312"/>
+            <point key="canvasLocation" x="-141" y="-116"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="XHH-hp-USU">
@@ -442,320 +442,505 @@
             <point key="canvasLocation" x="1325" y="306"/>
         </scene>
         <!--Document View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <scene sceneID="q48-Ip-vO8">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="DocumentViewController" customModule="ModuleViewer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="610" height="694"/>
+                <splitViewController id="PzT-7m-7zJ" customClass="DocumentViewController" customModule="ModuleViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="kSd-Nv-29a"/>
+                        <splitViewItem id="vrf-eU-bLm"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="paneSplitter" id="FiU-jh-AkP">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="PzT-7m-7zJ" id="HME-5J-DZ4"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="FiU-jh-AkP" id="U92-vO-itd"/>
+                        <segue destination="xld-DR-XZ7" kind="relationship" relationship="splitItems" id="uZ0-s9-s8A"/>
+                        <segue destination="kzS-pw-Vy5" kind="relationship" relationship="splitItems" id="G31-4g-dlV"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="UN4-F3-BZq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-586" y="327"/>
+        </scene>
+        <!--Document Dependencies View Controller-->
+        <scene sceneID="Wty-xT-GTk">
+            <objects>
+                <viewController id="xld-DR-XZ7" customClass="DocumentDependenciesViewController" customModule="ModuleViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="EGH-7D-DSq">
+                        <rect key="frame" x="0.0" y="0.0" width="504" height="141"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <gridView horizontalCompressionResistancePriority="749" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="KDC-Vs-2pY">
-                                <rect key="frame" x="20" y="653" width="267" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="267" id="KFG-oA-OEN"/>
-                                </constraints>
-                                <rows>
-                                    <gridRow height="21" id="s1n-jT-GZ9"/>
-                                </rows>
-                                <columns>
-                                    <gridColumn xPlacement="trailing" width="106" id="56o-ZV-5nP"/>
-                                    <gridColumn width="155" id="ekF-DX-7f8"/>
-                                </columns>
-                                <gridCells>
-                                    <gridCell row="s1n-jT-GZ9" column="56o-ZV-5nP" id="H94-tQ-osu">
-                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y4F-0P-u5k">
-                                            <rect key="frame" x="15" y="0.0" width="93" height="17"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Architectures :" id="fj7-ef-YoM">
-                                                <font key="font" usesAppearanceFont="YES"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                    </gridCell>
-                                    <gridCell row="s1n-jT-GZ9" column="ekF-DX-7f8" id="A7k-jM-Gv6">
-                                        <tokenField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ry-Q9-mKM">
-                                            <rect key="frame" x="110" y="0.0" width="8" height="16"/>
-                                            <tokenFieldCell key="cell" selectable="YES" alignment="left" allowsEditingTextAttributes="YES" id="h5w-wl-xhU">
-                                                <font key="font" metaFont="cellTitle"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </tokenFieldCell>
-                                        </tokenField>
-                                    </gridCell>
-                                </gridCells>
-                            </gridView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-zz-y6K">
-                                <rect key="frame" x="0.0" y="0.0" width="610" height="533"/>
-                                <clipView key="contentView" id="gV0-uN-ZFu">
-                                    <rect key="frame" x="1" y="0.0" width="608" height="532"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="MeH-B2-6TE" id="lbn-uU-Ski">
-                                            <rect key="frame" x="0.0" y="0.0" width="608" height="509"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNU-Wh-gr4">
+                                <rect key="frame" x="0.0" y="0.0" width="504" height="131"/>
+                                <subviews>
+                                    <gridView horizontalCompressionResistancePriority="749" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="KDC-Vs-2pY">
+                                        <rect key="frame" x="0.0" y="110" width="500" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="500" id="1j5-jC-lso"/>
+                                        </constraints>
+                                        <rows>
+                                            <gridRow height="21" id="s1n-jT-GZ9"/>
+                                        </rows>
+                                        <columns>
+                                            <gridColumn xPlacement="trailing" width="106" id="56o-ZV-5nP"/>
+                                            <gridColumn id="ekF-DX-7f8"/>
+                                        </columns>
+                                        <gridCells>
+                                            <gridCell row="s1n-jT-GZ9" column="56o-ZV-5nP" id="H94-tQ-osu">
+                                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y4F-0P-u5k">
+                                                    <rect key="frame" x="15" y="0.0" width="93" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="89" id="a3i-GT-z4P"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Architectures :" id="fj7-ef-YoM">
+                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </gridCell>
+                                            <gridCell row="s1n-jT-GZ9" column="ekF-DX-7f8" id="A7k-jM-Gv6">
+                                                <tokenField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ry-Q9-mKM">
+                                                    <rect key="frame" x="110" y="0.0" width="8" height="16"/>
+                                                    <tokenFieldCell key="cell" selectable="YES" alignment="left" allowsEditingTextAttributes="YES" id="h5w-wl-xhU">
+                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </tokenFieldCell>
+                                                </tokenField>
+                                            </gridCell>
+                                        </gridCells>
+                                    </gridView>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgg-HU-4Ty">
+                                        <rect key="frame" x="0.0" y="0.0" width="504" height="100"/>
+                                        <clipView key="contentView" id="y9U-1Z-Txn">
+                                            <rect key="frame" x="1" y="0.0" width="502" height="99"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" rowSizeStyle="automatic" headerView="fOE-wb-SfF" viewBased="YES" id="cL1-v6-qxJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="502" height="76"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn identifier="DependencyPathColumn" width="499" minWidth="40" maxWidth="1000" id="3tC-lP-Qcj">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Dependencies">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" refusesFirstResponder="YES" title="Text Cell" id="MqP-eQ-0cH">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView identifier="DependencyPathCell" id="Nxb-qp-ZdU" customClass="DependencyCellView" customModule="ModuleViewer" customModuleProvider="target">
+                                                                    <rect key="frame" x="1" y="1" width="499" height="22"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dOs-19-YSb">
+                                                                            <rect key="frame" x="453" y="2" width="43" height="17"/>
+                                                                            <buttonCell key="cell" type="roundRect" title="Open" bezelStyle="roundedRect" alignment="center" controlSize="small" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jks-51-XVG">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="openDependency:" target="Nxb-qp-ZdU" id="iHN-9q-eyQ"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <pathControl horizontalHuggingPriority="249" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PgQ-L6-c2e">
+                                                                            <rect key="frame" x="3" y="1" width="442" height="20"/>
+                                                                            <pathCell key="cell" controlSize="small" selectable="YES" alignment="left" id="qlf-ei-Bc7">
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                                <url key="url" string="file:///Applications/Xcode.app/"/>
+                                                                            </pathCell>
+                                                                        </pathControl>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="dOs-19-YSb" secondAttribute="bottom" constant="3" id="62o-yn-74Y"/>
+                                                                        <constraint firstItem="dOs-19-YSb" firstAttribute="top" secondItem="Nxb-qp-ZdU" secondAttribute="top" constant="3" id="IGH-ID-apx"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="dOs-19-YSb" secondAttribute="trailing" constant="3" id="MLd-tL-TsH"/>
+                                                                        <constraint firstItem="dOs-19-YSb" firstAttribute="leading" secondItem="PgQ-L6-c2e" secondAttribute="trailing" constant="8" id="Y5f-jf-qss"/>
+                                                                        <constraint firstItem="PgQ-L6-c2e" firstAttribute="top" secondItem="Nxb-qp-ZdU" secondAttribute="top" constant="1" id="gpD-Up-2fX"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="PgQ-L6-c2e" secondAttribute="bottom" constant="1" id="m5M-pU-Ntq"/>
+                                                                        <constraint firstItem="PgQ-L6-c2e" firstAttribute="leading" secondItem="Nxb-qp-ZdU" secondAttribute="leading" constant="3" id="mA5-uA-QwH"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <outlet property="openButton" destination="dOs-19-YSb" id="Nub-Hm-VAf"/>
+                                                                        <outlet property="pathControl" destination="PgQ-L6-c2e" id="mch-qU-hcA"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="xld-DR-XZ7" id="P57-tG-9pc"/>
+                                                        <outlet property="delegate" destination="xld-DR-XZ7" id="Ctk-hh-vf9"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                        </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Jve-CI-iUA"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="xKL-6i-KCr"/>
+                                            <constraint firstAttribute="height" constant="100" placeholder="YES" id="zlK-ts-ML6"/>
+                                        </constraints>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="t8n-9m-YjX">
+                                            <rect key="frame" x="1" y="183" width="443" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                            <tableColumns>
-                                                <tableColumn identifier="type" editable="NO" width="40" minWidth="40" maxWidth="1000" id="WpV-Ae-ISu">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Type">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" title="Text Cell" id="NfV-QI-lF4">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="architecture" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="7kj-Uc-Jwa">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Architecture">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" alignment="left" title="Text Cell" id="jdw-I5-eMy">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="name" editable="NO" width="495" minWidth="40" maxWidth="1000" id="l2C-Qd-DjV">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Symbol">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" title="Text Cell" id="Ioa-RF-4ZM">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                            </tableColumns>
-                                            <connections>
-                                                <outlet property="dataSource" destination="5gI-5U-AMq" id="pBm-MP-EgX"/>
-                                            </connections>
-                                        </tableView>
-                                    </subviews>
-                                </clipView>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="rzk-bs-3PB">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" id="fOE-wb-SfF">
+                                            <rect key="frame" x="0.0" y="0.0" width="502" height="23"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Qu0-FE-4dn"/>
+                                    <constraint firstItem="Cgg-HU-4Ty" firstAttribute="leading" secondItem="CNU-Wh-gr4" secondAttribute="leading" id="EcB-On-F3r"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cgg-HU-4Ty" secondAttribute="bottom" id="Krf-M4-1hr"/>
+                                    <constraint firstItem="KDC-Vs-2pY" firstAttribute="top" secondItem="CNU-Wh-gr4" secondAttribute="top" id="QI8-Ey-Nj9"/>
+                                    <constraint firstItem="KDC-Vs-2pY" firstAttribute="leading" secondItem="CNU-Wh-gr4" secondAttribute="leading" id="YId-y9-xId"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cgg-HU-4Ty" secondAttribute="trailing" id="vPf-nA-R0m"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Hhe-Mk-uNz">
-                                    <rect key="frame" x="1" y="469" width="590" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JvT-Dm-Cm9">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <tableHeaderView key="headerView" id="MeH-B2-6TE">
-                                    <rect key="frame" x="0.0" y="0.0" width="608" height="23"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableHeaderView>
-                            </scrollView>
-                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-oX-ccl">
-                                <rect key="frame" x="20" y="623" width="570" height="22"/>
-                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search Symbols by Name" usesSingleLineMode="YES" bezelStyle="round" id="oEg-SN-0xN">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </searchFieldCell>
-                                <connections>
-                                    <outlet property="delegate" destination="5gI-5U-AMq" id="yUN-fl-bne"/>
-                                </connections>
-                            </searchField>
-                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rnu-5H-hO3">
-                                <rect key="frame" x="20" y="541" width="562" height="74"/>
-                                <rows>
-                                    <gridRow id="e7v-3m-fS1"/>
-                                    <gridRow id="Axb-7y-vPf"/>
-                                    <gridRow id="YWZ-59-u4Q"/>
-                                    <gridRow id="Yrt-yP-EFD"/>
-                                </rows>
-                                <columns>
-                                    <gridColumn id="1kf-4F-T7x"/>
-                                    <gridColumn id="cxx-Nj-bmL"/>
-                                    <gridColumn id="Y2X-2E-X8n"/>
-                                </columns>
-                                <gridCells>
-                                    <gridCell row="e7v-3m-fS1" column="1kf-4F-T7x" id="ue2-nO-khT">
-                                        <button key="contentView" identifier="local" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5aW-nK-IxU">
-                                            <rect key="frame" x="-2" y="58" width="182" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Local symbols (lowercase)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="afo-hy-jG8">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="YSQ-th-I4g"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="e7v-3m-fS1" column="cxx-Nj-bmL" id="YHH-X2-jwr">
-                                        <button key="contentView" identifier="external" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-tD-nsl">
-                                            <rect key="frame" x="182" y="58" width="202" height="18"/>
-                                            <buttonCell key="cell" type="check" title="External symbols (uppercase)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Nrf-dc-bbP">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="yfJ-Eo-L0y"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="e7v-3m-fS1" column="Y2X-2E-X8n" id="w1a-y1-afG"/>
-                                    <gridCell row="Axb-7y-vPf" column="1kf-4F-T7x" id="Lie-CF-4P7">
-                                        <button key="contentView" identifier="undefined" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-Ts-ngE">
-                                            <rect key="frame" x="-2" y="38" width="173" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;U&quot; - Undefined symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="YwJ-j1-1wH">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="YJa-wl-45o"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="Axb-7y-vPf" column="cxx-Nj-bmL" id="LJq-7I-EWb">
-                                        <button key="contentView" identifier="absolute" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tks-DE-9yi">
-                                            <rect key="frame" x="182" y="38" width="161" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;A&quot; - Absolute symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hmq-B6-WFZ">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="Q8Q-8n-vQQ"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="Axb-7y-vPf" column="Y2X-2E-X8n" id="fuV-A6-dWg">
-                                        <button key="contentView" identifier="common" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hI8-Ws-HLc">
-                                            <rect key="frame" x="386" y="38" width="164" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;C&quot; - Common symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="IJe-i6-4QP">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="6I6-Io-XmJ"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="YWZ-59-u4Q" column="1kf-4F-T7x" id="xXX-eB-3RQ">
-                                        <button key="contentView" identifier="text" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="951-wX-znz">
-                                            <rect key="frame" x="-2" y="18" width="182" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;T&quot; - Text section symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SVJ-dL-JLy">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="vZ0-Kg-sLZ"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="YWZ-59-u4Q" column="cxx-Nj-bmL" id="Hcm-uI-6PN">
-                                        <button key="contentView" identifier="data" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gic-aA-hXE">
-                                            <rect key="frame" x="182" y="18" width="186" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;D&quot; - Data section symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hZY-wH-90L">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="bNo-9I-tbH"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="YWZ-59-u4Q" column="Y2X-2E-X8n" id="QWx-BT-ynl">
-                                        <button key="contentView" identifier="bss" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pbP-JI-Bmr">
-                                            <rect key="frame" x="386" y="18" width="178" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;B&quot; - bss section symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="C7L-Xg-vDF">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="0cd-KV-4FY"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="Yrt-yP-EFD" column="1kf-4F-T7x" id="R0t-PH-T5E">
-                                        <button key="contentView" identifier="indirect" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XxK-yP-fjx">
-                                            <rect key="frame" x="-2" y="-2" width="150" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;I&quot; - Indirect symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cx5-cP-DgV">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="2u5-8k-wK1"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="Yrt-yP-EFD" column="cxx-Nj-bmL" id="Iy2-Fp-iJh">
-                                        <button key="contentView" identifier="other" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Qy-jU-5Vn">
-                                            <rect key="frame" x="182" y="-2" width="143" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;S&quot; - Other symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ti6-bt-uK8">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="NLR-BK-eBu"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                    <gridCell row="Yrt-yP-EFD" column="Y2X-2E-X8n" id="gNS-Q0-ZxY">
-                                        <button key="contentView" identifier="debugger" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CcM-9p-TZn">
-                                            <rect key="frame" x="386" y="-2" width="167" height="18"/>
-                                            <buttonCell key="cell" type="check" title="&quot;-&quot; - Debugger symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TiA-NY-HBO">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="filterSymbolType:" target="5gI-5U-AMq" id="Zxe-ZW-Q7X"/>
-                                            </connections>
-                                        </button>
-                                    </gridCell>
-                                </gridCells>
-                            </gridView>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hLL-oX-ccl" firstAttribute="top" secondItem="KDC-Vs-2pY" secondAttribute="bottom" constant="8" id="5O1-Sp-lnl"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KDC-Vs-2pY" secondAttribute="trailing" constant="20" id="7Pl-uE-7Z9"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rnu-5H-hO3" secondAttribute="trailing" constant="20" id="BT7-EK-1ia"/>
-                            <constraint firstItem="KDC-Vs-2pY" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" id="JDN-gu-NjZ"/>
-                            <constraint firstAttribute="trailing" secondItem="e8b-zz-y6K" secondAttribute="trailing" id="Kbc-pg-hJn"/>
-                            <constraint firstItem="Rnu-5H-hO3" firstAttribute="top" secondItem="hLL-oX-ccl" secondAttribute="bottom" constant="8" id="LOq-yg-PFd"/>
-                            <constraint firstItem="Rnu-5H-hO3" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" id="NLO-XX-D61"/>
-                            <constraint firstItem="hLL-oX-ccl" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="20" id="blq-c3-WPE"/>
-                            <constraint firstAttribute="bottom" secondItem="e8b-zz-y6K" secondAttribute="bottom" id="fzD-FA-THt"/>
-                            <constraint firstItem="KDC-Vs-2pY" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" id="icM-e0-4x3"/>
-                            <constraint firstItem="e8b-zz-y6K" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="iui-Ih-CD5"/>
-                            <constraint firstItem="e8b-zz-y6K" firstAttribute="top" secondItem="Rnu-5H-hO3" secondAttribute="bottom" constant="8" id="ngS-Jx-0op"/>
-                            <constraint firstAttribute="trailing" secondItem="hLL-oX-ccl" secondAttribute="trailing" constant="20" id="sRY-oQ-6YS"/>
+                            <constraint firstAttribute="bottom" secondItem="CNU-Wh-gr4" secondAttribute="bottom" id="7Kh-MC-qbF"/>
+                            <constraint firstItem="CNU-Wh-gr4" firstAttribute="top" secondItem="EGH-7D-DSq" secondAttribute="top" constant="10" id="FSZ-nd-ybD"/>
+                            <constraint firstAttribute="trailing" secondItem="CNU-Wh-gr4" secondAttribute="trailing" id="S8h-4n-jlZ"/>
+                            <constraint firstItem="CNU-Wh-gr4" firstAttribute="leading" secondItem="EGH-7D-DSq" secondAttribute="leading" id="VgZ-yv-wcw"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="absoluteSymbolsButton" destination="Tks-DE-9yi" id="WBu-dm-orG"/>
-                        <outlet property="architecturesField" destination="6ry-Q9-mKM" id="Brw-mb-KlR"/>
-                        <outlet property="bssSymbolsButton" destination="pbP-JI-Bmr" id="XoN-xf-XrW"/>
-                        <outlet property="commonSymbolsButton" destination="hI8-Ws-HLc" id="e3E-5T-52T"/>
-                        <outlet property="dataSymbolsButton" destination="gic-aA-hXE" id="5Sm-pA-kcb"/>
-                        <outlet property="debuggerSymbolsButton" destination="CcM-9p-TZn" id="zoh-et-XEC"/>
-                        <outlet property="externalSymbolsButton" destination="m3A-tD-nsl" id="iT8-EM-2Ci"/>
-                        <outlet property="indirectSymbolsButton" destination="XxK-yP-fjx" id="qQB-W7-W8I"/>
-                        <outlet property="localSymbolsButton" destination="5aW-nK-IxU" id="0Fg-eY-ZrR"/>
-                        <outlet property="otherSymbolsButton" destination="1Qy-jU-5Vn" id="COD-2L-a68"/>
-                        <outlet property="symbolsSearchField" destination="hLL-oX-ccl" id="iJL-Fp-dLX"/>
-                        <outlet property="symbolsTableView" destination="lbn-uU-Ski" id="TvC-w1-A72"/>
-                        <outlet property="textSymbolsButton" destination="951-wX-znz" id="vcV-t8-DuU"/>
-                        <outlet property="undefinedSymbolsButton" destination="ddm-Ts-ngE" id="CJb-nw-Rtb"/>
+                        <outlet property="architecturesField" destination="6ry-Q9-mKM" id="pUD-zD-PIv"/>
+                        <outlet property="dependenciesTableView" destination="cL1-v6-qxJ" id="Swd-rW-Wye"/>
                     </connections>
                 </viewController>
-                <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="fs8-It-Oul" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="946"/>
+            <point key="canvasLocation" x="53" y="261.5"/>
+        </scene>
+        <!--Document Symbols View Controller-->
+        <scene sceneID="SW4-QZ-iKC">
+            <objects>
+                <viewController id="kzS-pw-Vy5" customClass="DocumentSymbolsViewController" customModule="ModuleViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="muv-zy-dy2">
+                        <rect key="frame" x="0.0" y="0.0" width="738" height="321"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTH-dI-7vy">
+                                <rect key="frame" x="0.0" y="0.0" width="738" height="311"/>
+                                <subviews>
+                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-oX-ccl">
+                                        <rect key="frame" x="20" y="289" width="698" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="bBW-fD-S3h"/>
+                                        </constraints>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search Symbols by Name" usesSingleLineMode="YES" bezelStyle="round" id="oEg-SN-0xN">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                        <connections>
+                                            <outlet property="delegate" destination="kzS-pw-Vy5" id="8dW-8s-A79"/>
+                                        </connections>
+                                    </searchField>
+                                    <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rnu-5H-hO3">
+                                        <rect key="frame" x="20" y="205" width="590" height="74"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="74" id="GzA-fx-sMU"/>
+                                            <constraint firstAttribute="width" constant="590" id="dWw-Px-vTB"/>
+                                        </constraints>
+                                        <rows>
+                                            <gridRow id="e7v-3m-fS1"/>
+                                            <gridRow id="Axb-7y-vPf"/>
+                                            <gridRow id="YWZ-59-u4Q"/>
+                                            <gridRow id="Yrt-yP-EFD"/>
+                                        </rows>
+                                        <columns>
+                                            <gridColumn id="1kf-4F-T7x"/>
+                                            <gridColumn id="cxx-Nj-bmL"/>
+                                            <gridColumn id="Y2X-2E-X8n"/>
+                                        </columns>
+                                        <gridCells>
+                                            <gridCell row="e7v-3m-fS1" column="1kf-4F-T7x" id="ue2-nO-khT">
+                                                <button key="contentView" identifier="local" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5aW-nK-IxU">
+                                                    <rect key="frame" x="-2" y="58" width="182" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Local symbols (lowercase)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="afo-hy-jG8">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="C18-EA-p5G"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="e7v-3m-fS1" column="cxx-Nj-bmL" id="YHH-X2-jwr">
+                                                <button key="contentView" identifier="external" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-tD-nsl">
+                                                    <rect key="frame" x="182" y="58" width="202" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="External symbols (uppercase)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Nrf-dc-bbP">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="Ohc-0p-ww4"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="e7v-3m-fS1" column="Y2X-2E-X8n" id="w1a-y1-afG"/>
+                                            <gridCell row="Axb-7y-vPf" column="1kf-4F-T7x" id="Lie-CF-4P7">
+                                                <button key="contentView" identifier="undefined" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-Ts-ngE">
+                                                    <rect key="frame" x="-2" y="38" width="173" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;U&quot; - Undefined symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="YwJ-j1-1wH">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="ZCy-Fc-EXw"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="Axb-7y-vPf" column="cxx-Nj-bmL" id="LJq-7I-EWb">
+                                                <button key="contentView" identifier="absolute" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tks-DE-9yi">
+                                                    <rect key="frame" x="182" y="38" width="161" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;A&quot; - Absolute symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hmq-B6-WFZ">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="VK5-0v-lw9"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="Axb-7y-vPf" column="Y2X-2E-X8n" id="fuV-A6-dWg">
+                                                <button key="contentView" identifier="common" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hI8-Ws-HLc">
+                                                    <rect key="frame" x="386" y="38" width="164" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;C&quot; - Common symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="IJe-i6-4QP">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="gWJ-M1-yrI"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="YWZ-59-u4Q" column="1kf-4F-T7x" id="xXX-eB-3RQ">
+                                                <button key="contentView" identifier="text" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="951-wX-znz">
+                                                    <rect key="frame" x="-2" y="18" width="182" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;T&quot; - Text section symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SVJ-dL-JLy">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="fb8-Kw-vod"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="YWZ-59-u4Q" column="cxx-Nj-bmL" id="Hcm-uI-6PN">
+                                                <button key="contentView" identifier="data" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gic-aA-hXE">
+                                                    <rect key="frame" x="182" y="18" width="186" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;D&quot; - Data section symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hZY-wH-90L">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="4XG-Dr-OS8"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="YWZ-59-u4Q" column="Y2X-2E-X8n" id="QWx-BT-ynl">
+                                                <button key="contentView" identifier="bss" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pbP-JI-Bmr">
+                                                    <rect key="frame" x="386" y="18" width="178" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;B&quot; - bss section symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="C7L-Xg-vDF">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="6Oi-4I-8ky"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="Yrt-yP-EFD" column="1kf-4F-T7x" id="R0t-PH-T5E">
+                                                <button key="contentView" identifier="indirect" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XxK-yP-fjx">
+                                                    <rect key="frame" x="-2" y="-2" width="150" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;I&quot; - Indirect symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cx5-cP-DgV">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="aU8-dp-5E2"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="Yrt-yP-EFD" column="cxx-Nj-bmL" id="Iy2-Fp-iJh">
+                                                <button key="contentView" identifier="other" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Qy-jU-5Vn">
+                                                    <rect key="frame" x="182" y="-2" width="143" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;S&quot; - Other symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ti6-bt-uK8">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="nce-0g-898"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                            <gridCell row="Yrt-yP-EFD" column="Y2X-2E-X8n" id="gNS-Q0-ZxY">
+                                                <button key="contentView" identifier="debugger" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CcM-9p-TZn">
+                                                    <rect key="frame" x="386" y="-2" width="167" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="&quot;-&quot; - Debugger symbols" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TiA-NY-HBO">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="filterSymbolType:" target="kzS-pw-Vy5" id="p2O-7o-x9W"/>
+                                                    </connections>
+                                                </button>
+                                            </gridCell>
+                                        </gridCells>
+                                    </gridView>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-zz-y6K">
+                                        <rect key="frame" x="0.0" y="0.0" width="738" height="195"/>
+                                        <clipView key="contentView" id="gV0-uN-ZFu">
+                                            <rect key="frame" x="1" y="0.0" width="736" height="194"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="MeH-B2-6TE" id="lbn-uU-Ski">
+                                                    <rect key="frame" x="0.0" y="0.0" width="736" height="171"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn identifier="type" editable="NO" width="40" minWidth="40" maxWidth="1000" id="WpV-Ae-ISu">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Type">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" title="Text Cell" id="NfV-QI-lF4">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="architecture" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="7kj-Uc-Jwa">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Architecture">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" alignment="left" title="Text Cell" id="jdw-I5-eMy">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="name" editable="NO" width="623" minWidth="40" maxWidth="1000" id="l2C-Qd-DjV">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Symbol">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" title="Text Cell" id="Ioa-RF-4ZM">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="kzS-pw-Vy5" id="dmb-6v-dim"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                        </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="1nl-2p-1ff"/>
+                                        </constraints>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Hhe-Mk-uNz">
+                                            <rect key="frame" x="1" y="320" width="298" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JvT-Dm-Cm9">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" id="MeH-B2-6TE">
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="23"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hLL-oX-ccl" firstAttribute="leading" secondItem="gTH-dI-7vy" secondAttribute="leading" constant="20" id="5OO-XX-Dag"/>
+                                    <constraint firstAttribute="trailing" secondItem="e8b-zz-y6K" secondAttribute="trailing" id="ARO-tM-f6g"/>
+                                    <constraint firstItem="e8b-zz-y6K" firstAttribute="leading" secondItem="gTH-dI-7vy" secondAttribute="leading" id="BpG-ae-mP7"/>
+                                    <constraint firstAttribute="trailing" secondItem="hLL-oX-ccl" secondAttribute="trailing" constant="20" id="E2z-dv-l9W"/>
+                                    <constraint firstItem="hLL-oX-ccl" firstAttribute="top" secondItem="gTH-dI-7vy" secondAttribute="top" id="VXO-DB-PIX"/>
+                                    <constraint firstItem="Rnu-5H-hO3" firstAttribute="leading" secondItem="gTH-dI-7vy" secondAttribute="leading" constant="20" id="meG-hD-Lgt"/>
+                                    <constraint firstAttribute="bottom" secondItem="e8b-zz-y6K" secondAttribute="bottom" id="rGJ-MM-YoZ"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gTH-dI-7vy" secondAttribute="trailing" id="D1A-Go-ERq"/>
+                            <constraint firstAttribute="bottom" secondItem="gTH-dI-7vy" secondAttribute="bottom" id="LIi-Ww-zuU"/>
+                            <constraint firstItem="gTH-dI-7vy" firstAttribute="leading" secondItem="muv-zy-dy2" secondAttribute="leading" id="eu3-px-SQQ"/>
+                            <constraint firstItem="gTH-dI-7vy" firstAttribute="top" secondItem="muv-zy-dy2" secondAttribute="top" constant="10" id="iU1-AH-zqn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="absoluteSymbolsButton" destination="Tks-DE-9yi" id="D9i-Xf-Gg4"/>
+                        <outlet property="bssSymbolsButton" destination="pbP-JI-Bmr" id="hgq-MM-who"/>
+                        <outlet property="commonSymbolsButton" destination="hI8-Ws-HLc" id="aUl-0e-ew2"/>
+                        <outlet property="dataSymbolsButton" destination="gic-aA-hXE" id="P6G-bK-Ibp"/>
+                        <outlet property="debuggerSymbolsButton" destination="CcM-9p-TZn" id="Vca-oq-bjy"/>
+                        <outlet property="externalSymbolsButton" destination="m3A-tD-nsl" id="k33-kS-YB1"/>
+                        <outlet property="indirectSymbolsButton" destination="XxK-yP-fjx" id="jxq-Lv-Oaf"/>
+                        <outlet property="localSymbolsButton" destination="5aW-nK-IxU" id="SEE-ON-oKW"/>
+                        <outlet property="otherSymbolsButton" destination="1Qy-jU-5Vn" id="CTL-bI-rVx"/>
+                        <outlet property="symbolsSearchField" destination="hLL-oX-ccl" id="3Sw-RW-Nhk"/>
+                        <outlet property="symbolsTableView" destination="lbn-uU-Ski" id="0Hq-O4-CRY"/>
+                        <outlet property="textSymbolsButton" destination="951-wX-znz" id="Ufy-sm-nQK"/>
+                        <outlet property="undefinedSymbolsButton" destination="ddm-Ts-ngE" id="flc-op-SmO"/>
+                        <outlet property="view" destination="muv-zy-dy2" id="M4k-wh-vWv"/>
+                    </connections>
+                </viewController>
+                <customObject id="ccw-zT-7Ol" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81" y="735.5"/>
         </scene>
     </scenes>
 </document>
