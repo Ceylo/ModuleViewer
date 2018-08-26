@@ -487,7 +487,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn editable="NO" width="445" minWidth="40" maxWidth="1000" id="96i-Ot-3yO">
+                                                <tableColumn editable="NO" width="445" minWidth="40" maxWidth="5000" id="96i-Ot-3yO">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -810,7 +810,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="name" editable="NO" width="623" minWidth="40" maxWidth="1000" id="l2C-Qd-DjV">
+                                                        <tableColumn identifier="name" editable="NO" width="623" minWidth="40" maxWidth="5000" id="l2C-Qd-DjV">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Symbol">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
