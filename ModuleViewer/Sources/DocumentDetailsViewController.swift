@@ -50,6 +50,11 @@ class DocumentDetailsViewController : NSViewController, NSOutlineViewDataSource,
         super.init(coder: coder)
     }
     
+    override func viewDidLoad() {
+        detailsOutlineView.target = self
+        detailsOutlineView.doubleAction = #selector(didDoubleClickRow)
+    }
+    
     override var representedObject: Any? {
         didSet {
             if (self.representedObject as? Document) != nil {
@@ -62,6 +67,15 @@ class DocumentDetailsViewController : NSViewController, NSOutlineViewDataSource,
     
     weak var document: Document? {
         return self.representedObject as? Document
+    }
+    
+    @objc func didDoubleClickRow() {
+        let selectedItem = detailsOutlineView.item(atRow: detailsOutlineView.selectedRow)
+        if selectedItem is DependencyItem {
+            if let dependencyView = detailsOutlineView.view(atColumn: 0, row: detailsOutlineView.selectedRow, makeIfNecessary: false) as? DependencyCellView {
+                dependencyView.openDependency(nil)
+            }
+        }
     }
     
     func rebuildOutlineViewItems() {
