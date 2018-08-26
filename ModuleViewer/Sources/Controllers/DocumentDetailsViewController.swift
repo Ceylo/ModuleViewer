@@ -9,6 +9,7 @@
 import Cocoa
 import os
 
+// MARK: Outline view items
 private class HeaderItem {
     let title : String
     
@@ -33,24 +34,20 @@ private class ArchitectureItem {
     }
 }
 
+// MARK: -
 class DocumentDetailsViewController : NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
     
     @IBOutlet weak var detailsOutlineView: NSOutlineView!
     
-    private let outlineViewHeaders : [HeaderItem]
+    private let outlineViewHeaders : [HeaderItem] = [
+        HeaderItem(withTitle: "Architectures"),
+        HeaderItem(withTitle: "Dependencies")
+    ]
     private var outlineViewArchitectures = [ArchitectureItem]()
     private var outlineViewDependencies = [DependencyItem]()
     
-    required init?(coder: NSCoder) {
-        self.outlineViewHeaders = [
-            HeaderItem(withTitle: "Architectures"),
-            HeaderItem(withTitle: "Dependencies")
-        ]
-        
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
+        super.viewDidLoad()
         detailsOutlineView.target = self
         detailsOutlineView.doubleAction = #selector(didDoubleClickRow)
     }
@@ -69,15 +66,6 @@ class DocumentDetailsViewController : NSViewController, NSOutlineViewDataSource,
         return self.representedObject as? Document
     }
     
-    @objc func didDoubleClickRow() {
-        let selectedItem = detailsOutlineView.item(atRow: detailsOutlineView.selectedRow)
-        if selectedItem is DependencyItem {
-            if let dependencyView = detailsOutlineView.view(atColumn: 0, row: detailsOutlineView.selectedRow, makeIfNecessary: false) as? DependencyCellView {
-                dependencyView.openDependency(nil)
-            }
-        }
-    }
-    
     func rebuildOutlineViewItems() {
         self.outlineViewArchitectures = self.document?.architectures?.map({
             (arch : String) -> ArchitectureItem in
@@ -94,6 +82,17 @@ class DocumentDetailsViewController : NSViewController, NSOutlineViewDataSource,
         }) ?? []
     }
     
+    // MARK: - UI actions
+    @objc func didDoubleClickRow() {
+        let selectedItem = detailsOutlineView.item(atRow: detailsOutlineView.selectedRow)
+        if selectedItem is DependencyItem {
+            if let dependencyView = detailsOutlineView.view(atColumn: 0, row: detailsOutlineView.selectedRow, makeIfNecessary: false) as? DependencyCellView {
+                dependencyView.openDependency(nil)
+            }
+        }
+    }
+    
+    // MARK: - Outline view data source and delegate
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil {
             return outlineViewHeaders.count

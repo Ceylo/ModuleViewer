@@ -8,6 +8,7 @@
 
 import Cocoa
 
+// NSPathControl that lets mouse clicks go through itself
 class ClickLessPathControl : NSPathControl {
     override func mouseDown(with event: NSEvent) {
         if let responder = self.nextResponder {

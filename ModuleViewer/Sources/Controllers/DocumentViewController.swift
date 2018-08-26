@@ -10,12 +10,6 @@ import Cocoa
 import os
 
 class DocumentViewController: NSSplitViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
     override var representedObject: Any? {
         didSet {
             for splitViewItem in self.splitViewItems {

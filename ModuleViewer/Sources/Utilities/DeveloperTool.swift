@@ -6,8 +6,7 @@
 //  Copyright © 2018 Yalir. All rights reserved.
 //
 
-import Foundation
-import AppKit
+import Cocoa
 import os
 
 class DeveloperTool {

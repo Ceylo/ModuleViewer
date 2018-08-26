@@ -16,6 +16,7 @@ class PreferencesViewController: NSViewController {
         xcodePathControl.url = ToolchainProvider.shared.selectedXcode
     }
     
+    // MARK: - UI actions
     @IBAction func selectXcode(_ sender: NSButton) {
         let provider = ToolchainProvider.shared
         if let newXcodeUrl = provider.askXcodeUrl() {

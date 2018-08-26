@@ -12,6 +12,7 @@ class DependencyCellView : NSTableCellView {
     @IBOutlet weak var pathControl : NSPathControl!
     @IBOutlet weak var openButton : NSButton!
     
+    // MARK: - UI actions
     @IBAction func openDependency(_ sender : NSButton?) {
         if let fileUrl = pathControl.url {
             if FileManager.default.fileExists(atPath: fileUrl.path) {

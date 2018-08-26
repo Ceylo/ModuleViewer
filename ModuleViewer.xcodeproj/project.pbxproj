@@ -77,15 +77,11 @@
 		872E3AA02124C25C0019B09A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				872E3A9F2124C2320019B09A /* Utilities */,
 				8754F785211EF2E100608303 /* AppDelegate.swift */,
-				8754F787211EF2E100608303 /* DocumentViewController.swift */,
 				8754F789211EF2E100608303 /* Document.swift */,
-				87DBF8692124904300463208 /* PreferencesViewController.swift */,
-				87DB496921289ED10065A7BF /* DocumentSymbolsViewController.swift */,
-				877D407B2128C3E100E559BA /* DependencyCellView.swift */,
-				87EFDB3D2132BF9500A5A8B3 /* DocumentDetailsViewController.swift */,
-				87A8B8C02132F4A400A6216C /* ClickLessPathControl.swift */,
+				872E3A9F2124C2320019B09A /* Utilities */,
+				87A8B8C3213309D900A6216C /* Controllers */,
+				87A8B8C2213309C900A6216C /* Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -117,6 +113,26 @@
 				8754F791211EF2E200608303 /* ModuleViewer.entitlements */,
 			);
 			path = ModuleViewer;
+			sourceTree = "<group>";
+		};
+		87A8B8C2213309C900A6216C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				877D407B2128C3E100E559BA /* DependencyCellView.swift */,
+				87A8B8C02132F4A400A6216C /* ClickLessPathControl.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		87A8B8C3213309D900A6216C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8754F787211EF2E100608303 /* DocumentViewController.swift */,
+				87DBF8692124904300463208 /* PreferencesViewController.swift */,
+				87DB496921289ED10065A7BF /* DocumentSymbolsViewController.swift */,
+				87EFDB3D2132BF9500A5A8B3 /* DocumentDetailsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

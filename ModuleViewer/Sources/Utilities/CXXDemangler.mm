@@ -58,8 +58,7 @@ NSString* _Nonnull DemangleCXXSymbol(NSString* _Nonnull symbol)
         cString++;
     }
     
-    CXADemangleStorage demangled = DemangleName(cString);
-    if (demangled)
+    if (CXADemangleStorage demangled = DemangleName(cString))
         return [NSString stringWithCxxString:demangled.get()];
     else
         return symbol;
