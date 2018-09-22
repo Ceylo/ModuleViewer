@@ -118,7 +118,7 @@ class DocumentSymbolsViewController: NSViewController, NSTableViewDataSource, NS
         symbolsTableView.reloadData()
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         filterSymbols()
     }
     
