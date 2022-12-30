@@ -15,7 +15,7 @@ class ObjdumpTool : DeveloperTool {
     }
     
     func dependencies(for fileUrl : URL) throws -> [String] {
-        let output = try execute(with: [ "-macho", "-dylibs-used", "-non-verbose", "-no-leading-headers", fileUrl.path ])
+        let output = try execute(with: [ "--macho", "--dylibs-used", "--non-verbose", "--no-leading-headers", fileUrl.path ])
         let lines = output.components(separatedBy: .newlines)
         let regex = try NSRegularExpression(pattern: "\t(.+) \\(.*", options: [])
         
