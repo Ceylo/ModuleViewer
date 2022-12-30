@@ -50,6 +50,7 @@ class DocumentDetailsViewController : NSViewController, NSOutlineViewDataSource,
         super.viewDidLoad()
         detailsOutlineView.target = self
         detailsOutlineView.doubleAction = #selector(didDoubleClickRow)
+        detailsOutlineView.sizeLastColumnToFit()
     }
     
     override var representedObject: Any? {
